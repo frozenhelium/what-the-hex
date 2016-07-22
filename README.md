@@ -1,28 +1,38 @@
 # what-the-hex
-Desktop color picker using Xlib
 
-## Dependency
+Desktop color picker using Xlib.
+
+## Dependencies
+
 * X11
-* xclip
+* xsel
 
-Install xclip
+Install xsel:
+
 ```bash
-$ sudo apt-get install xclip
+$ sudo apt-get install xsel
 ```
 
-## Build
-Create a bin directory first inside project directory
+## Build and install
+
+Build the application using following command:
+
 ```bash
-$ mkdir bin
+$ make
 ```
-Now, build with `g++` as
+
+The application is built into the *bin* directory. You can install it to run globally using following command:
+
 ```bash
-$ g++ main.cpp -o bin/what-the-hex -lX11
+$ sudo make install
 ```
 
 ## Run
-Run with program with following command
+
+Once installed, you can the run the application with following command:
+
 ```bash
-$ ./bin/what-the-hex
+$ what-the-hex
 ```
-Click on screen to pick the color. The hex value will be copied to the clipboard.
+
+Click anywhere on screen to pick a color. The hex value will be copied to the clipboard.
