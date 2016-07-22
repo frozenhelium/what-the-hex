@@ -21,6 +21,8 @@ int main()
                ButtonPressMask | ButtonReleaseMask | PointerMotionMask | FocusChangeMask | EnterWindowMask | LeaveWindowMask,
                GrabModeAsync, GrabModeAsync, RootWindow(display, DefaultScreen(display)), cursor, CurrentTime);
 
+    XGrabKeyboard(display, DefaultRootWindow(display), False, GrabModeAsync, GrabModeAsync, CurrentTime);
+
     XEvent e;
     while (true)
     {
@@ -44,6 +46,11 @@ int main()
             std::string cmd = ss.str();
             system(cmd.c_str());
             break;
+        }
+        else if (e.type == KeyPress)
+        {
+            if (e.xkey.keycode == XKeysymToKeycode(display, XK_Escape))
+                break;
         }
     }
     XUngrabPointer(display, CurrentTime);
