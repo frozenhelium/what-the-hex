@@ -39,7 +39,7 @@ int main()
                 << std::setfill ('0') << std::setw (2) << std::hex << (255*color.green)/65535
                 << std::setfill ('0') << std::setw (2) << std::hex << (255*color.blue)/65535 << std::endl;
             std::stringstream ss;
-            ss << "echo \""
+            ss << "printf \""
                 << std::setfill ('0') << std::setw (2) << std::hex << (255*color.red)/65535
                 << std::setfill ('0') << std::setw (2) << std::hex << (255*color.green)/65535
                 << std::setfill ('0') << std::setw (2) << std::hex << (255*color.blue)/65535 << "\" | xsel -i -b";
